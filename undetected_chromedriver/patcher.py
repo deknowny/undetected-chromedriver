@@ -14,6 +14,7 @@ import shutil
 import string
 import sys
 import time
+import secrets
 from urllib.request import urlopen
 from urllib.request import urlretrieve
 import zipfile
@@ -59,7 +60,7 @@ class Patcher(object):
         """
         self.force = force
         self._custom_exe_path = False
-        prefix = "undetected"
+        prefix = secrets.token_hex(8)
         self.user_multi_procs = user_multi_procs
 
         self.is_old_chromedriver = version_main and version_main <= 114
